@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="dHVvnEWez1M" data-toggle="modal" data-target="#trailer">
+    <img src="https://aworldoffilm.files.wordpress.com/2014/01/azbzeds2uymgbsndqutvaeu2dha.jpg" width="220" height="342">
+    <h3>His Girl Friday</h3>
+    <!-- here -->
+    <h5>Cary Grant, Rosalind Russell</h5>
+    <h6>A newspaper editor uses every trick in the
+                              book to keep his ace reporter
+                              ex-wife from remarrying.</h6>
+    <h8>NR</h8>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="kk0inzcZmaE" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/XFilesMoviePoster.jpg/220px-XFilesMoviePoster.jpg" width="220" height="342">
+    <h3>The X-Files: Fight the Future</h3>
+    <!-- here -->
+    <h5>Gillian Anderson, David Duchovny</h5>
+    <h6>Mulder and Scully must fight the
+                                      government in a conspiracy and find the
+                                      truth about an alien colonization of
+                                      Earth.</h6>
+    <h8>PG-13</h8>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="QmgPw34Xm3A" data-toggle="modal" data-target="#trailer">
+    <img src="https://s-media-cache-ak0.pinimg.com/736x/32/ba/6d/32ba6d69dd4855602e1cebcabf58e7bf.jpg" width="220" height="342">
+    <h3>Charade</h3>
+    <!-- here -->
+    <h5>Cary Grant, Audrey Hepburn</h5>
+    <h6>Romance and suspense ensue in Paris as a woman is
+                      pursued by several men who want a fortune her murdered
+                      husband had stolen. Who can she trust?</h6>
+    <h8>NR</h8>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="iwROgK94zcM" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.nausicaa.net/miyazaki/howl/poster_images/USA_full.jpg" width="220" height="342">
+    <h3>Howl's Moving Castle</h3>
+    <!-- here -->
+    <h5>Christian Bale, Emily Mortimer</h5>
+    <h6>When an young woman is cursed by a
+                                  spiteful witch, her only chance of breaking
+                                  the spell lies with a self-indulgent young
+                                  wizard and his walking castle.</h6>
+    <h8>PG</h8>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="JY3u7bB7dZk" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.gstatic.com/tv/thumb/movieposters/89596/p89596_p_v8_ac.jpg" width="220" height="342">
+    <h3>Serenity</h3>
+    <!-- here -->
+    <h5>Nathan Fillion, Gina Torres</h5>
+    <h6>The crew of the ship Serenity tries to evade an
+                       assassin sent to recapture one of their number who is
+                       telepathic.</h6>
+    <h8>PG-13</h8>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EAet5fsSYbc" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.gstatic.com/tv/thumb/movieposters/19184/p19184_p_v8_aa.jpg" width="220" height="342">
+    <h3>Cats Don't Dance</h3>
+    <!-- here -->
+    <h5>Scott Bakula, Jasmine Guy</h5>
+    <h6>Danny, an ambitious singing/dancing cat, goes
+                              to Hollywood and overcomes several obstacles to
+                              fulfill his dream of becoming a movie star.</h6>
+    <h8>G</h8>
+</div>
+
+    </div>
+  </body>
+</html>
